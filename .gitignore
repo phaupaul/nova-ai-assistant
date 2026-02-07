@@ -1,0 +1,43 @@
+# Local state and cache
+.local/
+.replit
+*.log
+
+# Backup files
+*-backup.*
+*-simple.*
+*-minimal.*
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+
+# Environment files (if any)
+.env
+.env.local
+
+# Node modules (if you add build tools later)
+node_modules/
+
+# Build outputs (if you add build process)
+dist/
+build/
+
+# Test files
+test-*.html
+test.html
+
+# Attached assets (user-specific)
+attached_assets/

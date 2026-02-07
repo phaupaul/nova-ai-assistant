@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova AI Assistant - Settings</title>
+    <link rel="stylesheet" href="options.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <img src="icons/nova-logo.png" alt="Nova" class="nova-logo-icon">
+                <h1>Nova AI Assistant</h1>
+            </div>
+            <div class="version">v1.0.0</div>
+        </header>
+
+        <main class="main-content">
+            <div class="settings-section">
+                <h2><i class="fas fa-key"></i> Nova API Configuration</h2>
+                <p class="description">
+                    Enter your Nova API key to connect to Nova models. 
+                    Your key is stored securely in Chrome's local storage.
+                </p>
+
+                <div class="form-group">
+                    <label for="novaApiKey">
+                        <i class="fas fa-key"></i>
+                        Nova API Key
+                    </label>
+                    <input 
+                        type="password" 
+                        id="novaApiKey" 
+                        placeholder="Enter your Nova API key"
+                        autocomplete="off"
+                    >
+                    <small>Your API key will be used to authenticate with the Nova API service</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="selectedModel">
+                        <i class="fas fa-brain"></i>
+                        Nova Model
+                    </label>
+                    <select id="selectedModel">
+                        <option value="nova-2-lite-v1">Nova 2 Lite (Fast & Cost-Effective)</option>
+                        <option value="nova-2-pro-v1">Nova 2 Pro (Most Intelligent)</option>
+                    </select>
+                    <small>Choose the Nova model that best fits your needs</small>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h2><i class="fas fa-comment-dots"></i> System Prompt</h2>
+                <p class="description">
+                    Set a custom system prompt that will be applied to every conversation. This helps Nova understand your preferences and context.
+                </p>
+                
+                <div class="form-group">
+                    <label for="systemPrompt">
+                        <i class="fas fa-edit"></i>
+                        System Prompt
+                    </label>
+                    <textarea 
+                        id="systemPrompt" 
+                        placeholder="Example: You are a helpful assistant. Always provide concise answers and use simple language."
+                        rows="4"
+                    ></textarea>
+                    <small>This prompt will be sent with every message to provide context to Nova</small>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h2><i class="fas fa-bolt"></i> Custom Quick Actions</h2>
+                <p class="description">
+                    Create your own quick actions with custom prompts. These will appear as buttons in the chat interface.
+                </p>
+                
+                <div id="quickActionsList" class="quick-actions-list">
+                    <!-- Quick actions will be dynamically added here -->
+                </div>
+                
+                <button id="addQuickAction" class="btn-secondary">
+                    <i class="fas fa-plus"></i> Add Quick Action
+                </button>
+            </div>
+
+        </main>
+
+        <footer class="footer">
+            <div class="actions">
+                <button id="testConnection" class="test-btn">
+                    <i class="fas fa-plug"></i>
+                    Test Connection
+                </button>
+                <button id="saveSettings" class="save-btn">
+                    <i class="fas fa-save"></i>
+                    Save Settings
+                </button>
+            </div>
+            
+            <div class="status-message" id="statusMessage" style="display: none;"></div>
+            
+            <div class="help-links">
+                <a href="#" onclick="return false;" style="cursor: help;" title="API key required for authentication">
+                    <i class="fas fa-book"></i>
+                    API Key Info
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="options.js"></script>
+</body>
+</html>

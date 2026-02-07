@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova AI Assistant</title>
+    <link rel="stylesheet" href="popup.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+                <h1>Nova AI</h1>
+            </div>
+            <button id="settingsBtn" class="settings-btn" title="Settings">
+                <i class="fas fa-cog"></i>
+            </button>
+        </header>
+
+        <div id="errorMessage" class="error-message" style="display: none;">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span id="errorText"></span>
+        </div>
+
+        <div class="chat-container">
+            <div id="chatHistory" class="chat-history"></div>
+            
+            <div class="input-container">
+                <textarea 
+                    id="userInput" 
+                    placeholder="Ask me anything about this webpage..."
+                    rows="2"
+                    maxlength="500"
+                ></textarea>
+                <button id="sendBtn" class="send-btn" title="Send">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="quick-actions">
+            <h3>Quick Actions</h3>
+            <div class="action-grid">
+                <button class="action-btn" data-action="summarize">
+                    <i class="fas fa-file-alt"></i>
+                    Summarize
+                </button>
+                <button class="action-btn" data-action="explain">
+                    <i class="fas fa-lightbulb"></i>
+                    Explain Simply
+                </button>
+                <button class="action-btn" data-action="translate">
+                    <i class="fas fa-language"></i>
+                    Translate
+                </button>
+                <button class="action-btn" data-action="keypoints">
+                    <i class="fas fa-list-ul"></i>
+                    Key Points
+                </button>
+                <button class="action-btn" data-action="questions">
+                    <i class="fas fa-question-circle"></i>
+                    Q&A
+                </button>
+                <button class="action-btn" data-action="images">
+                    <i class="fas fa-image"></i>
+                    Analyze Images
+                </button>
+            </div>
+        </div>
+
+        <div class="loading" id="loadingIndicator" style="display: none;">
+            <div class="spinner"></div>
+            <span>Thinking...</span>
+        </div>
+
+        <div class="status-bar">
+            <div class="model-info">
+                <span id="currentModel">Nova Lite</span>
+                <span class="status-dot" id="statusDot"></span>
+            </div>
+            <div class="token-counter">
+                <span id="tokenCount">0</span> tokens
+            </div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

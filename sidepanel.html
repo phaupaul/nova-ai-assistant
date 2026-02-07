@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova AI Assistant</title>
+    <link rel="stylesheet" href="sidepanel.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="nova-sidepanel" class="nova-sidepanel">
+        <!-- Sidebar for chat history -->
+        <div id="sidebar" class="sidebar collapsed">
+            <div class="sidebar-header">
+                <h3>Conversations</h3>
+                <button id="closeSidebarBtn" class="icon-btn" title="Close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="sidebar-content">
+                <button id="newChatFromSidebar" class="new-chat-btn">
+                    <i class="fas fa-plus"></i>
+                    New Chat
+                </button>
+                <div id="conversationList" class="conversation-list">
+                    <!-- Conversations will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Main content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <button id="toggleSidebarBtn" class="icon-btn" title="Chat History">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="header-title">
+                    <img src="icons/nova-logo.png" alt="Nova" class="logo">
+                    <span id="chatTitle">New Chat</span>
+                </div>
+                <div class="header-actions">
+                    <button id="newChatBtn" class="icon-btn" title="New Chat">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <button id="settingsBtn" class="icon-btn" title="Settings">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Error message -->
+            <div id="errorMessage" class="error-banner" style="display: none;">
+                <i class="fas fa-exclamation-circle"></i>
+                <span id="errorText"></span>
+                <button id="closeError" class="close-error">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <!-- Context toggle (collapsible) -->
+            <div class="context-section">
+                <button id="toggleContext" class="context-toggle">
+                    <i class="fas fa-globe"></i>
+                    <span>Page Context</span>
+                    <span class="context-badge" id="contextBadge">0</span>
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </button>
+                <div id="contextPanel" class="context-panel" style="display: none;">
+                    <div class="context-item">
+                        <input type="checkbox" id="currentPageCheck" class="context-checkbox">
+                        <label for="currentPageCheck" class="context-label">
+                            <i class="fas fa-file"></i>
+                            <span id="currentPageTitle">Current Page</span>
+                        </label>
+                    </div>
+                    <div class="context-divider"></div>
+                    <div class="other-pages-header">
+                        <span>Other Tabs</span>
+                        <button id="refreshTabsBtn" class="icon-btn-small">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                    </div>
+                    <div id="otherPagesList" class="other-pages-list">
+                        <!-- Other tabs will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat area -->
+            <div class="chat-area">
+                <div id="chatMessages" class="chat-messages">
+                    <!-- Welcome message -->
+                    <div class="welcome-message">
+                        <i class="fas fa-robot"></i>
+                        <h2>Hello! I'm Nova</h2>
+                        <p>Ask me anything or use a quick action below</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick actions (always visible) -->
+            <div class="quick-actions-bar">
+                <div class="quick-actions-scroll" id="quickActionsGrid">
+                    <!-- Quick actions will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Input area -->
+            <div class="input-area">
+                <div class="input-wrapper">
+                    <textarea 
+                        id="userInput" 
+                        placeholder="Ask me anything..."
+                        rows="1"
+                        maxlength="2000"
+                    ></textarea>
+                    <button id="sendBtn" class="send-btn" title="Send">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Loading indicator -->
+            <div id="loadingIndicator" class="loading-indicator" style="display: none;">
+                <div class="loading-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="sidepanel.js"></script>
+</body>
+</html>
